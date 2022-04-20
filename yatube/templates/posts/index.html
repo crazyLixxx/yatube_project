@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Последние обновления на сайте{% endblock %}
+{% block headliner %}Последние обновления на сайте{% endblock %}
+{% block article %}
+{% for article in posts %}
+  <article>
+    <ul>
+      <li>
+        Автор: {{ article.author.get_full_name }}
+      </li>
+      <li>
+        Дата публикации: {{ article.pub_date|date:'j F Y' }}
+      </li>
+    </ul>      
+    <p>
+      {{ article.text }}
+    </p>
+    {% if article.group %}   
+      <a href="{% url 'posts:group_list' article.group.slug %}">все записи группы</a>
+    {% endif %}
+  </article>
+  <hr>
+  {% empty %}
+    <p>Все обновления ещё только случаются.</p>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Записи сообщества {{ group.title }}{% endblock %} 
+{% block headliner %}{{ group.description }}{% endblock %}
+{% block article %}
+{% for article in posts %}
+  <article>
+    <ul>
+      <li>
+        Автор: {{ article.author.get_full_name }}
+      </li>
+      <li>
+        Дата публикации: {{ article.pub_date|date:'j F Y' }}
+      </li>
+    </ul>      
+    <p>
+      {{ article.text }}
+    </p>
+  </article>
+  <hr>
+  {% empty %}
+    <p>Все записи ещё только случаются.</p>
+  {% endfor %}
+{% endblock %}

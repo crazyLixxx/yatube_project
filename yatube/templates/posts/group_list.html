@@ -2,22 +2,5 @@
 {% block title %}Записи сообщества {{ group.title }}{% endblock %} 
 {% block content %}
 <h1>{{ group.description }}</h1>
-{% for article in posts %}
-  <article>
-    <ul>
-      <li>
-        Автор: {{ article.author.get_full_name }}
-      </li>
-      <li>
-        Дата публикации: {{ article.pub_date|date:'j F Y' }}
-      </li>
-    </ul>      
-    <p>
-      {{ article.text }}
-    </p>
-  </article>
-  <hr>
-  {% empty %}
-    <p>Все записи ещё только случаются.</p>
-  {% endfor %}
+{% include 'includes/article.html' %}
 {% endblock %}

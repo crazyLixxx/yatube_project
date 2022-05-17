@@ -1,13 +1,13 @@
 from django.contrib.auth.views import (
-                                    LoginView,
-                                    LogoutView,
-                                    PasswordChangeView,
-                                    PasswordChangeDoneView,
-                                    PasswordResetView,
-                                    PasswordResetConfirmView,
-                                    PasswordResetCompleteView,
-                                    PasswordResetDoneView
-                                    )
+    LoginView,
+    LogoutView,
+    PasswordChangeDoneView,
+    PasswordChangeView,
+    PasswordResetCompleteView,
+    PasswordResetConfirmView,
+    PasswordResetDoneView,
+    PasswordResetView
+)
 from django.urls import path
 
 from . import views
@@ -75,5 +75,5 @@ urlpatterns = [
         'signup/',
         views.SignUp.as_view(),
         name='signup'
-        )
+    )
 ]

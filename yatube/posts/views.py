@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
 
@@ -34,8 +35,10 @@ def group_posts(request, slug):
     return render(request, template, context)
 
 
+@login_required
 def post_create(request):
     template = 'posts/create_post.html'
+    form = PostForm()
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
@@ -44,10 +47,10 @@ def post_create(request):
             post.save()
             return redirect(f'/profile/{request.user.username}/')
         return render(request, template, {'form': form})
-    form = PostForm()
     return render(request, template, {'form': form})
 
 
+@login_required
 def post_edit(request, post_id):
     template = 'posts/create_post.html'
     post = get_object_or_404(Post, pk=post_id)

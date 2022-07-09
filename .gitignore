@@ -120,6 +120,13 @@ venv.bak/
 # mkdocs documentation
 /site
 
+# coverage stuff
+htmlcolv/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
 # mypy
 .mypy_cache/
 .dmypy.json

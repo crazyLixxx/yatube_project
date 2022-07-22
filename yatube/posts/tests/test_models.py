@@ -41,7 +41,7 @@ class PostModelTest(TestCase):
         post = PostModelTest.post
         verbose_names = {
             'text': 'Текст поста',
-            'pub_date': 'Дата публикации',
+            'created': 'Дата создания',
             'author': 'Автор',
             'group': 'Группа',
         }
